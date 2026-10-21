@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main Menu</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+	<script src="../../../js/consts.js"></script>
+	<script src="../../../js/api.js"></script>
+</head>
+<body>
+	<h1>Main Menu</h1>
+	<noscript>
+		<p>Warning: This site does not work without javascript!</p>
+	</noscript>
+	<script>
+		function nav(location){
+			window.location.replace(BASE_ADDRESS + "www/menu/" + location + "/index.htm" + window.location.search)
+		}
+		function exit(status, response){
+			if(status >= 200){
+				if(status >= 400){
+					alert(response)
+				}
+				window.location.replace(BASE_ADDRESS + "www/index.htm")
+			}
+		}
+		function logout(){
+			const token = window.location.search.slice(1).split(':')[0]
+			call_chemuapi("POST", "auth/logout", token, token, exit)
+		}
+	</script>
+	<button onclick="nav('teacher')">
+		Teachers
+	</button>
+	<button onclick="nav('student')">
+		Students
+	</button>
+	<br />
+	<button onclick="nav('course')">
+		Courses
+	</button>
+	<button onclick="nav('section')">
+		Sections
+	</button>
+	<br />
+	<button onclick="logout()">
+		SIGN OUT
+	</button>
+</body>
+</html>

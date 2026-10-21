@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOGIN</title>
+	<meta name="viewport" content="width=device-width" />
+	<style>
+		body{
+			text-align: center;
+		}
+		label{
+			text-align: start;
+		}
+	</style>
+	<script src="../js/consts.js"></script>
+	<script src="../js/api.js"></script>
+</head>
+<body>
+	<h1>ChemU Administration Panel</h1>
+	<form method="POST" action="//52.206.48.241/admin/menu/login" id="login-form">
+		<label for="email">Email Address:</label><br />
+		<input type="email" name="email" id="email" required/><br />
+		<label for="password">Password:</label><br />
+		<input type="password" name="password" id="password" required/><br />
+		<label for="role">User Role:</label><br />
+		<select name="role" id="role-select" required>
+			<option value="TEACHER">Teacher</option>
+			<option value="ADMINISTRATOR">Administrator</option>
+		</select>
+		<input type="submit" value="LOGIN"/>
+	</form>
+	<!--<script>
+		var form = document.getElementById('login-form')
+		form.onsubmit = function (e){
+			const email = document.getElementById('email')
+			const password = document.getElementById('password')
+			const body = email.value + ':' + password.value
+			function getToken(status, response){
+				if(status >= 400){
+					alert(response)
+					return
+				}else if(status == 200){
+					window.location.replace(BASE_ADDRESS + "www/menu/main/index.htm?" + response)
+				}
+			}
+			call_chemuapi("POST", "auth/login", null, body, getToken)
+			e.preventDefault()
+		}
+	</script>-->
+</body>
+</html>
