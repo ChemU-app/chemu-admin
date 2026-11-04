@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>LOGIN</title>
-	<meta name="viewport" content="width=device-width" />
-	<style>
-		body{
-			text-align: center;
-		}
-		label{
-			text-align: start;
-		}
-	</style>
+	<title>Login</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+	<link href="../css/fonts.css" rel="stylesheet"/>
+	<link href="../css/basePage.css" rel="stylesheet"/>
+	<link rel="icon" href="/imgs/favicon.ico" />
 	<script src="../js/consts.js"></script>
 	<script src="../js/api.js"></script>
 </head>
 <body>
-	<h1>ChemU Administration Panel</h1>
+	<div style="margin-left:16px;margin-right:16px;">
+	<div class="header">
+		<img src="../imgs/logo.png" alt="ChemU logo"/>
+		<p class="headerTitle Nunito_900Black">ChemU Administration Panel</p>
+		<p class="headerDesc Outfit_400Regular">Master chemistry, one section at a time.</p>
+	</div>
 	<form method="POST" action="//52.206.48.241/admin/menu/login" id="login-form">
-		<label for="email">Email Address:</label><br />
-		<input type="email" name="email" id="email" required/><br />
-		<label for="password">Password:</label><br />
-		<input type="password" name="password" id="password" required/><br />
-		<label for="role">User Role:</label><br />
+		<label class="Nunito_800ExtraBold" for="email">EMAIL</label><br />
+		<input class="textInput Outfit_400Regular" type="email" name="email" id="email" placeholder="you@example.com" required/><br />
+		<label class="Nunito_800ExtraBold" for="password">PASSWORD</label><br />
+		<input class="textInput Outfit_400Regular" type="password" name="password" id="password" placeholder="••••••••" required/><br />
+		<!--<label for="role">User Role:</label><br />
 		<select name="role" id="role-select" required>
 			<option value="TEACHER">Teacher</option>
 			<option value="ADMINISTRATOR">Administrator</option>
-		</select>
-		<input type="submit" value="LOGIN"/>
+		</select>-->
+		<input type="hidden" name="role" value="ADMINISTRATOR"/>
+		<input class="inputButton Nunito_800ExtraBold" type="submit" value="LOGIN"/>
 	</form>
 	<!--<script>
 		var form = document.getElementById('login-form')
@@ -46,5 +49,6 @@
 			e.preventDefault()
 		}
 	</script>-->
+	</div>
 </body>
 </html>
